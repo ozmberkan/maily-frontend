@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import ReduxProvider from "@/providers/ReduxProvider";
 import QueryProvider from "@/providers/QueryProvider";
+import { Toaster } from "sonner";
+import BreadCrumbComp from "@/components/BreadCrumbComp/BreadCrumbComp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +20,13 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} flex w-full min-h-screen`}>
         <QueryProvider>
           <ReduxProvider>
+            <Toaster richColors closeButton />
             <NextTopLoader color="#f11946" showSpinner={false} />
             <Sidebar />
-            <main className="w-full">{children}</main>
+            <main className="w-full flex flex-col p-5 gap-5">
+              <BreadCrumbComp />
+              {children}
+            </main>
           </ReduxProvider>
         </QueryProvider>
       </body>

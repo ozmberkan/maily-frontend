@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "Auth Layout",
@@ -12,6 +13,7 @@ const AuthLayout = ({ children }) => {
   return (
     <html>
       <body className={`${inter.className}`}>
+        <Toaster richColors position="top-right" />
         <main className="">{children}</main>
       </body>
     </html>

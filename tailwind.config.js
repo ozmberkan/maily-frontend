@@ -2,14 +2,19 @@
 module.exports = {
   darkMode: ["class"],
   content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       backgroundImage: {
-        loginHero: "url('/login.png')",
+        loginHero: "url('/login.jpeg')",
       },
       colors: {
         background: "hsl(var(--background))",
@@ -53,13 +58,7 @@ module.exports = {
           5: "hsl(var(--chart-5))",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
     },
   },
-
   plugins: [require("tailwindcss-animate")],
 };

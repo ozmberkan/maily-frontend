@@ -1,5 +1,6 @@
 import Logo from "../Logo/Logo";
 import SidebarContent from "./children/SidebarContent";
+import SidebarFooter from "./children/SidebarFooter";
 import SidebarMailButton from "./children/SidebarMailButton";
 import SidebarSeperator from "./children/SidebarSeperator";
 
@@ -10,6 +11,7 @@ const Sidebar = () => {
       <SidebarMailButton />
       <SidebarContent />
       <SidebarSeperator />
+      <SidebarFooter />
     </div>
   );
 };
