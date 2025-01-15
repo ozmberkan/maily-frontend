@@ -53,14 +53,15 @@ const NewMailModal = ({ setShowModal }) => {
             <div className="flex items-center justify-end py-4 space-x-3 border-t border-gray-200 dark:border-gray-700">
               <button
                 type="button"
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
-                onClick={() => setShowModal(false)}
+                className="px-3 py-1 text-sm font-medium bg-yellow-100 text-yellow-700 border border-yellow-300 rounded"
+                onClick={() => console.log("Message sent")}
               >
-                Vazgeç
+                Taslak olarak kaydet
               </button>
+
               <button
                 type="button"
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                className="px-3 py-1 text-sm font-medium bg-green-100 text-green-700 border border-green-300 rounded"
                 onClick={() => console.log("Message sent")}
               >
                 Gönder

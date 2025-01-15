@@ -7,7 +7,7 @@ const SidebarContent = () => {
     <div className="flex-1 py-5">
       <SidebarGroup title={"Temel"} links={firstLinks} />
       <SidebarSeperator />
-      <SidebarGroup title={"Kişisel"} links={personalLinks} />
+      <SidebarGroup title={"Favorilerim"} links={personalLinks} />
     </div>
   );
 };
