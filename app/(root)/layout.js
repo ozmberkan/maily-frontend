@@ -1,6 +1,9 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
 import "../globals.css";
 import { Inter } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
+import ReduxProvider from "@/providers/ReduxProvider";
+import QueryProvider from "@/providers/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +16,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <body className={`${inter.className} flex w-full min-h-screen`}>
-        <header>
-          <Sidebar />
-        </header>
-        <main className="w-full p-2">{children}</main>
+        <QueryProvider>
+          <ReduxProvider>
+            <NextTopLoader color="#f11946" showSpinner={false} />
+            <Sidebar />
+            <main className="w-full">{children}</main>
+          </ReduxProvider>
+        </QueryProvider>
       </body>
     </html>
   );
