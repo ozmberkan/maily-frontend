@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 
 const TrashPage = () => {
-  return <div>TrashPage</div>;
+  return <div>trash</div>;
 };
 
 export default TrashPage;

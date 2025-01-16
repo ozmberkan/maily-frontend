@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import { IoClose } from "react-icons/io5";
 import { motion } from "motion/react";
+import { useForm } from "react-hook-form";
 
 const NewMailModal = ({ setShowModal }) => {
+  const { register, handleSubmit } = useForm();
+
   return (
     <div
       id="new-mail-modal"
@@ -34,7 +38,7 @@ const NewMailModal = ({ setShowModal }) => {
         {/* Content */}
         <div className="px-6 py-5 space-y-4">
           <p className="text-xs text-gray-600 dark:text-gray-300">
-            Burada yeni bir e-posta oluşturabilirsiniz. Alıyıcı, başlığı ve
+            Burada yeni bir maily oluşturabilirsiniz. Alıcı, başlığı ve
             içeriğinizi ekleyin
           </p>
           <form className="flex flex-col gap-3">

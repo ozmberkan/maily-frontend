@@ -18,17 +18,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <body className={`${inter.className} flex w-full min-h-screen`}>
-        <QueryProvider>
-          <ReduxProvider>
-            <Toaster richColors closeButton />
-            <NextTopLoader color="#f11946" showSpinner={false} />
-            <Sidebar />
-            <main className="w-full flex flex-col p-5 gap-5">
-              <BreadCrumbComp />
-              {children}
-            </main>
-          </ReduxProvider>
-        </QueryProvider>
+        <ReduxProvider>
+          <Toaster richColors closeButton />
+          <NextTopLoader color="#f11946" showSpinner={false} />
+          <Sidebar />
+          <main className="w-full flex flex-col p-5 gap-5">
+            <BreadCrumbComp />
+            <QueryProvider>{children}</QueryProvider>
+          </main>
+        </ReduxProvider>
       </body>
     </html>
   );

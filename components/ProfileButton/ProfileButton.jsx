@@ -7,13 +7,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { getUserById } from "@/redux/slices/userSlice";
+import { store } from "@/redux/store";
 import axios from "axios";
-
 import Link from "next/link";
+import { useEffect } from "react";
+
 import { BiExit, BiUser } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 
 const ProfileButton = () => {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((store) => store.user);
+
+  useEffect(() => {
+    dispatch(getUserById());
+  }, [dispatch]);
+
   const exitHandle = async () => {
     try {
       await axios.post(
@@ -36,16 +48,16 @@ const ProfileButton = () => {
         <div className="p-2 border rounded text-neutral-500 hover:text-black bg-white flex justify-start items-center cursor-pointer shadow-sm hover:bg-neutral-50 transition-colors duration-300">
           <BiUser size={13} />
           <span className="text-xs font-medium ml-2 pl-2 border-l">
-            @ozmberkan
+            {" "}
+            @{user?.username}
           </span>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mr-24 w-full">
         <DropdownMenuLabel className="text-xs bg-clip-text bg-gradient-to-l text-transparent from-sky-500  to-red-500">
-          @ozmberkan
+          @{user?.username}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-
         <DropdownMenuItem asChild>
           <Link
             href={"/profile"}

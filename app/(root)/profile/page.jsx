@@ -1,7 +1,18 @@
-import React from "react";
+"use client";
+import { getUserById } from "@/redux/slices/userSlice";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProfilePage = () => {
-  return <div>ProfilePage</div>;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserById());
+  }, [dispatch]);
+
+  const { user } = useSelector((store) => store.user);
+
+  return <div>{user?.fullName}</div>;
 };
 
 export default ProfilePage;
